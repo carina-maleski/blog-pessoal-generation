@@ -1,33 +1,63 @@
-**README - Projeto Blog Pessoal**
+   <h1>README - Projeto Blog Pessoal</h1>
 
-Este é o repositório do meu projeto pessoal desenvolvido durante o Bloco 2 do bootcamp da Generation. O objetivo principal deste projeto é criar um blog pessoal utilizando tecnologias como Java, Maven, Spring Boot, MySQL e React.
+    <p>Este é o repositório do meu projeto pessoal desenvolvido durante o Bloco 2 do bootcamp da Generation. O objetivo principal deste projeto é criar um blog pessoal utilizando tecnologias como Java, Maven, Spring Boot, MySQL e React.</p>
 
-**Tecnologias Utilizadas**
-Java: A linguagem de programação principal utilizada no backend do projeto. A escolha do Java proporciona uma base sólida para a construção de aplicativos robustos e escaláveis.
-Maven: Ferramenta de gerenciamento de dependências utilizada para facilitar o processo de construção do projeto. Com o Maven, é possível automatizar a compilação, teste e distribuição do software.
-Spring Boot: Framework amplamente utilizado para o desenvolvimento de aplicativos Java. No contexto deste projeto, o Spring Boot é fundamental para a construção de uma aplicação web eficiente e de fácil manutenção.
-MySQL: Banco de dados relacional escolhido para armazenar e gerenciar os dados do blog. O MySQL é uma opção confiável e escalável para sistemas que exigem manipulação eficiente de dados.
-React: Biblioteca JavaScript utilizada para construir a interface do usuário do blog. A abordagem declarativa e componentizada do React facilita o desenvolvimento de interfaces interativas e responsivas.
+    <h2>Tecnologias Utilizadas</h2>
 
-**Conceitos Essenciais**
-Backend (Java e Spring Boot)
-API REST: O backend é construído seguindo os princípios da arquitetura REST, proporcionando uma comunicação eficiente entre o frontend e o backend.
-Spring Data JPA: Utilizado para simplificar o acesso e a manipulação dos dados do MySQL, fornecendo uma camada de abstração sobre o banco de dados.
+    <ul>
+        <li><strong>Java:</strong> A linguagem de programação principal utilizada no backend do projeto.</li>
+        <li><strong>Maven:</strong> Ferramenta de gerenciamento de dependências utilizada para facilitar o processo de construção do projeto.</li>
+        <li><strong>Spring Boot:</strong> Framework amplamente utilizado para o desenvolvimento de aplicativos Java.</li>
+        <li><strong>MySQL:</strong> Banco de dados relacional escolhido para armazenar e gerenciar os dados do blog.</li>
+        <li><strong>React:</strong> Biblioteca JavaScript utilizada para construir a interface do usuário do blog.</li>
+    </ul>
 
-Frontend (React) - Em construção
+    <h2>Conceitos Essenciais</h2>
 
-**Executando o Projeto**
-Configuração do Banco de Dados: 
-Configure as propriedades do banco de dados no arquivo application.properties no diretório src/main/resources.
+    <h3>Backend (Java e Spring Boot)</h3>
 
-Backend (Spring Boot):
-Importe o projeto em sua IDE favorita.
-Execute a classe principal BlogApplication.java.
+    <ul>
+        <li><strong>RESTful API:</strong> O backend é construído seguindo os princípios da arquitetura REST.</li>
+        <li><strong>Spring Security:</strong> Implementação de autenticação e autorização.</li>
+        <li><strong>Spring Data JPA:</strong> Utilizado para simplificar o acesso e a manipulação dos dados do MySQL.</li>
+    </ul>
 
-Frontend (React) - Em construção
+    <h3>Frontend (React)</h3>
 
-Acesso ao Blog:
-Abra o navegador e acesse http://localhost:8080 para interagir com o blog.
-Este projeto é uma oportunidade de aplicar os conceitos aprendidos durante o Bloco 2 da Generation, proporcionando uma experiência prática e relevante no desenvolvimento de aplicações web modernas.
+    <ul>
+        <li><strong>Em construção</strong> A interface do usuário é construída através de componentes reutilizáveis.</li>
+        <li><strong>State Management:</strong> Utilização de ferramentas como o Redux para gerenciar o estado da aplicação.</li>
+        <li><strong>Integração com API:</strong> Comunicação assíncrona com a API REST do backend.</li>
+    </ul>
 
-(Atenção: Este README foi parcialmente elaborado com o ChatGPT.)
+    <h2>Executando o Projeto</h2>
+
+    <ol>
+        <li><strong>Configuração do Banco de Dados:</strong>
+            <ul>
+                <li>Configure as propriedades do banco de dados no arquivo <code>application.properties</code> no diretório <code>src/main/resources</code>.</li>
+            </ul>
+        </li>
+        <li><strong>Backend (Spring Boot):</strong>
+            <ul>
+                <li>Importe o projeto em sua IDE favorita.</li>
+                <li>Execute a classe principal <code>BlogApplication.java</code>.</li>
+            </ul>
+        </li>
+        <li><strong>Frontend (React):</strong>
+            <ul>
+                <li>Navegue até o diretório <code>frontend</code> usando o terminal.</li>
+                <li>Execute <code>npm install</code> para instalar as dependências.</li>
+                <li>Execute <code>npm start</code> para iniciar o servidor de desenvolvimento.</li>
+            </ul>
+        </li>
+        <li><strong>Acesso ao Blog:</strong>
+            <ul>
+                <li>Abra o navegador e acesse <code>http://localhost:3000</code> para interagir com o blog.</li>
+            </ul>
+        </li>
+    </ol>
+
+    <p>Este projeto é uma oportunidade de aplicar os conceitos aprendidos durante o Bloco 2 da Generation, proporcionando uma experiência prática e relevante no desenvolvimento de aplicações web modernas.</p>
+
+<br>(Este README foi parcialmente elaborado com o ChatGPT.)
