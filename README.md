@@ -1,4 +1,5 @@
 **README - Projeto Blog Pessoal**
+
 Este é o repositório do meu projeto pessoal desenvolvido durante o Bloco 2 do bootcamp da Generation. O objetivo principal deste projeto é criar um blog pessoal utilizando tecnologias como Java, Maven, Spring Boot, MySQL e React.
 
 **Tecnologias Utilizadas**
