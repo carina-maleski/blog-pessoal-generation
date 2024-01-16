@@ -13,8 +13,7 @@ Backend (Java e Spring Boot)
 API REST: O backend é construído seguindo os princípios da arquitetura REST, proporcionando uma comunicação eficiente entre o frontend e o backend.
 Spring Data JPA: Utilizado para simplificar o acesso e a manipulação dos dados do MySQL, fornecendo uma camada de abstração sobre o banco de dados.
 
-Frontend (React)
-~Em construção~
+Frontend (React) - Em construção
 
 **Executando o Projeto**
 Configuração do Banco de Dados: 
@@ -24,8 +23,7 @@ Backend (Spring Boot):
 Importe o projeto em sua IDE favorita.
 Execute a classe principal BlogApplication.java.
 
-Frontend (React):
-~Em construção~
+Frontend (React) - Em construção
 
 Acesso ao Blog:
 Abra o navegador e acesse http://localhost:8080 para interagir com o blog.
