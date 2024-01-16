@@ -1,4 +1,4 @@
-# README - Projeto Blog Pessoal
+# Blog Pessoal
 
 Este é o repositório do meu projeto pessoal desenvolvido durante o Bloco 2 do bootcamp da Generation. O objetivo principal deste projeto é criar um blog pessoal utilizando tecnologias como Java, Maven, Spring Boot, MySQL e React.
 
@@ -37,4 +37,4 @@ Este é o repositório do meu projeto pessoal desenvolvido durante o Bloco 2 do 
 4. **Acesso ao Blog:**
    - Abra o navegador e acesse `http://localhost:8080` para interagir com o blog.
 
-Este projeto é uma oportunidade de aplicar os conceitos aprendidos durante o Bloco 2 da Generation, proporcionando uma experiência prática e relevante no desenvolvimento de aplicações web modernas. Este documento README foi parcialmente escrito pelo ChatGPT.
+Este projeto é uma oportunidade de aplicar os conceitos aprendidos durante o Bloco 2 da Generation, proporcionando uma experiência prática no desenvolvimento de aplicações web modernas. Este documento README foi parcialmente escrito com o ChatGPT.
