@@ -26,7 +26,7 @@ public class Usuario {
 	private Long id;
 
 	@NotNull(message = "O atributo nome é obrigatório!")
-	private String name;
+	private String nome;
 
 	@NotNull(message = "O atributo usuário é obrigatório!")
 	@Email(message = "O Atributo Usuário deve ser um email válido!")
@@ -51,12 +51,12 @@ public class Usuario {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public String getUsuario() {
