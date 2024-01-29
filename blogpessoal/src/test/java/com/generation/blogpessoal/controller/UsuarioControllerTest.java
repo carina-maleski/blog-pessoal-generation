@@ -76,12 +76,27 @@ public class UsuarioControllerTest {
 
 		Usuario usuarioUpdate = new Usuario(usuarioCadastrado.get().getId(), "Juliana Fabricci Almeida",
 				"ju_almeida@email.com", "12141289", "-");
-		
+
 		HttpEntity<Usuario> corpoRequisicao = new HttpEntity<Usuario>(usuarioUpdate);
-		
-		ResponseEntity<Usuario> corpoResposta = testRestTemplate.withBasicAuth("root@root.com","rootroot")
+
+		ResponseEntity<Usuario> corpoResposta = testRestTemplate.withBasicAuth("root@root.com", "rootroot")
 				.exchange("/usuarios/atualizar", HttpMethod.PUT, corpoRequisicao, Usuario.class);
-		
+
 		assertEquals(HttpStatus.OK, corpoResposta.getStatusCode());
+	}
+
+	@Test
+	@DisplayName("Listar todos os Usuários")
+	public void deveMostrarTodosUsuarios() {
+
+		usuarioService.cadastrarUsuario(new Usuario(0L, "Mateus Figueiredo", "mateus_f@email.com", "12sadasd12", "-"));
+
+		usuarioService.cadastrarUsuario(new Usuario(0L, "Rogério Costa", "rogerio_costa@email.com", "1213403ds", "-"));
+
+		ResponseEntity<String> resposta = testRestTemplate.withBasicAuth("root@root.com", "rootroot")
+				.exchange("/usuarios/all", HttpMethod.GET, null, String.class);
+
+		assertEquals(HttpStatus.OK, resposta.getStatusCode());
+
 	}
 }
