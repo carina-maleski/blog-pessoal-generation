@@ -2,6 +2,8 @@ package com.generation.blogpessoal.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.Optional;
+
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -40,7 +42,7 @@ public class UsuarioControllerTest {
 	}
 
 	@Test
-	@DisplayName("Cadastrar Um Usuário")
+	@DisplayName("Cadastrar um Usuário")
 	public void deveCriarUmUsuario() {
 		HttpEntity<Usuario> corpoRequisicao = new HttpEntity<Usuario>(
 				new Usuario(0L, "Marina Magalhães", "ma_maga@email.com.br", "12345678", "-"));
@@ -62,8 +64,24 @@ public class UsuarioControllerTest {
 
 		ResponseEntity<Usuario> corpoResposta = testRestTemplate.exchange("/usuarios/cadastrar", HttpMethod.POST,
 				corpoRequisicao, Usuario.class);
-		
+
 		assertEquals(HttpStatus.BAD_REQUEST, corpoResposta.getStatusCode());
 	}
 
+	@Test
+	@DisplayName("Atualizar um Usuário")
+	public void deveAtualizarUmUsuario() {
+		Optional<Usuario> usuarioCadastrado = usuarioService
+				.cadastrarUsuario(new Usuario(0L, "Juliana Fabricci", "ju_fabri@email.com", "12141289", "-"));
+
+		Usuario usuarioUpdate = new Usuario(usuarioCadastrado.get().getId(), "Juliana Fabricci Almeida",
+				"ju_almeida@email.com", "12141289", "-");
+		
+		HttpEntity<Usuario> corpoRequisicao = new HttpEntity<Usuario>(usuarioUpdate);
+		
+		ResponseEntity<Usuario> corpoResposta = testRestTemplate.withBasicAuth("root@root.com","rootroot")
+				.exchange("/usuarios/atualizar", HttpMethod.PUT, corpoRequisicao, Usuario.class);
+		
+		assertEquals(HttpStatus.OK, corpoResposta.getStatusCode());
+	}
 }
