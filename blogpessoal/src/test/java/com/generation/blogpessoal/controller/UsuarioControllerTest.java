@@ -1,11 +1,19 @@
 package com.generation.blogpessoal.controller;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 import com.generation.blogpessoal.model.Usuario;
 import com.generation.blogpessoal.repository.UsuarioRepository;
@@ -29,6 +37,19 @@ public class UsuarioControllerTest {
 		usuarioRepository.deleteAll();
 
 		usuarioService.cadastrarUsuario(new Usuario(0L, "Root", "root@root.com", "rootroot", " "));
+	}
+
+	@Test
+	@DisplayName("Cadastrar Um Usuário")
+	public void deveCriarUmUsuario() {
+		HttpEntity<Usuario> corpoRequisicao = new HttpEntity<Usuario>(
+				new Usuario(0L, "Marina Magalhães", "ma_maga@email.com.br", "12345678", "-"));
+
+		ResponseEntity<Usuario> corpoResposta = testRestTemplate.exchange("/usuarios/cadastrar", HttpMethod.POST,
+				corpoRequisicao, Usuario.class);
+		
+		assertEquals(HttpStatus.CREATED, corpoResposta.getStatusCode());
+
 	}
 
 }
