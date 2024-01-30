@@ -18,7 +18,7 @@ import io.jsonwebtoken.security.Keys;
 @Component
 public class JwtService {
 
-	public static final String SECRET = "9297741943047d4541ae7565cc8668e69ac7e819c19fb0d24e058f46bee06bce";
+	public static final String SECRET = "5367566B59703373367639792F423F4528482B4D6251655468576D5A71347437";
 
 	private Key getSignKey() {
 		byte[] keyBytes = Decoders.BASE64.decode(SECRET);
@@ -26,7 +26,9 @@ public class JwtService {
 	}
 
 	private Claims extractAllClaims(String token) {
-		return Jwts.parserBuilder().setSigningKey(getSignKey()).build().parseClaimsJws(token).getBody();
+		return Jwts.parserBuilder()
+				.setSigningKey(getSignKey()).build()
+				.parseClaimsJws(token).getBody();
 	}
 
 	public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
@@ -42,24 +44,27 @@ public class JwtService {
 		return extractClaim(token, Claims::getExpiration);
 	}
 
-	private boolean isTokenExpired(String token) {
+	private Boolean isTokenExpired(String token) {
 		return extractExpiration(token).before(new Date());
 	}
 
-	public boolean validateToken(String token, UserDetails userDetails) {
+	public Boolean validateToken(String token, UserDetails userDetails) {
 		final String username = extractUsername(token);
 		return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
 	}
 
 	private String createToken(Map<String, Object> claims, String userName) {
-		return Jwts.builder().setClaims(claims).setSubject(userName).setIssuedAt(new Date(System.currentTimeMillis()))
-				.setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60))
-				.signWith(getSignKey(), SignatureAlgorithm.HS256).compact();
-
+		return Jwts.builder()
+					.setClaims(claims)
+					.setSubject(userName)
+					.setIssuedAt(new Date(System.currentTimeMillis()))
+					.setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60))
+					.signWith(getSignKey(), SignatureAlgorithm.HS256).compact();
 	}
-	
+
 	public String generateToken(String userName) {
 		Map<String, Object> claims = new HashMap<>();
-		return createToken(claims,userName);
+		return createToken(claims, userName);
 	}
+
 }

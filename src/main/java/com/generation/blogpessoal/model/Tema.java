@@ -6,13 +6,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "tb_temas")
@@ -21,16 +20,16 @@ public class Tema {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@NotBlank(message = "O atributo Descrição é obrigatório")
+
+	@NotNull(message = "O Atributo Descrição é obrigatório")
 	private String descricao;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "tema", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "tema", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("tema")
 	private List<Postagem> postagem;
 
 	public Long getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(Long id) {
@@ -38,7 +37,7 @@ public class Tema {
 	}
 
 	public String getDescricao() {
-		return descricao;
+		return this.descricao;
 	}
 
 	public void setDescricao(String descricao) {
@@ -54,4 +53,5 @@ public class Tema {
 	}
 	
 	
+
 }
