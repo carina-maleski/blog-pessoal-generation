@@ -89,13 +89,14 @@ public class UsuarioControllerTest {
 	@DisplayName("Listar todos os Usuários")
 	public void deveMostrarTodosUsuarios() {
 
-		usuarioService.cadastrarUsuario(new Usuario(0L, "Mateus Figueiredo", "mateus_f@email.com", "12sadasd12", "-"));
-
-		usuarioService.cadastrarUsuario(new Usuario(0L, "Rogério Costa", "rogerio_costa@email.com", "1213403ds", "-"));
-
-		ResponseEntity<String> resposta = testRestTemplate.withBasicAuth("root@root.com", "rootroot")
-				.exchange("/usuarios/all", HttpMethod.GET, null, String.class);
-
+		usuarioService.cadastrarUsuario(new Usuario(0L, "Mateus Figueiredo",
+				"mateus_f@email.com", "12sadasd12", "-"));
+		
+		usuarioService.cadastrarUsuario(new Usuario(0L, "Rogério Costa",
+				"rogerio_costa@email.com", "1213403ds", "-"));
+		
+		ResponseEntity<String> resposta = testRestTemplate.withBasicAuth("root@root.com", "rootroot").exchange("/usuarios/all", HttpMethod.GET, null, String.class);
+		
 		assertEquals(HttpStatus.OK, resposta.getStatusCode());
 
 	}
